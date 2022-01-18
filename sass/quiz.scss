@@ -1,0 +1,153 @@
+@import "quiz-variables";
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-300.woff2') format('woff2'),
+        url('../fonts/nunito-v20-latin_cyrillic-300.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-600.woff2') format('woff2'),
+        url('../fonts/nunito-v20-latin_cyrillic-600.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 900;
+    src: local(''),
+        url('../fonts/nunito-v20-latin_cyrillic-900.woff2') format('woff2'),
+        url('../fonts/nunito-v20-latin_cyrillic-900.woff') format('woff');
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Nunito, sans-serif;
+    background-color: $main-color-quiz;
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 300;
+    color: $second-color-quiz;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+}
+
+.header {
+    background-color: $third-color-quiz;
+    padding: 13px 0;
+    &__container {
+        padding: 0 30px;
+        max-width: 1140px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    &__title {
+        font-weight: 900;
+        font-size: 30px;
+        color: $main-color-quiz;
+        text-transform: uppercase;
+    }
+}
+
+.main {
+    padding: 60px 30px;
+    &__title {
+        font-size: 50px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    &__box {
+        margin: 0 auto;
+        max-width: 800px;
+        height: 540px;
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+    }
+    &__subtitle {
+        font-weight: 600;
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 60px;
+        &_result {
+            margin-bottom: 50px;
+        }
+    }
+    &__btn {
+        color: $third-color-quiz;
+        font-weight: 600;
+        width: 230px;
+        height: 50px;
+        background-color: $main-color-quiz;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        border: none
+    }
+}
+
+.selection {
+    padding: 50px;
+    &__list{
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 100%;
+    }
+    &__item {
+        display: flex;
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__theme {
+        width: 100%;
+        max-width: 520px;
+        background: $fourth-color-quiz;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 22px;
+        text-align-last: left;
+        border:none;
+        padding: 16px 20px;
+        overflow: hidden;
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+    &__result{
+        max-width: 63px;
+        text-align: center;
+        &-ratio {
+            display: block;
+            font-weight: 600;
+            font-size: 22px;
+            color: $third-color-quiz;
+        }
+        &-text {
+            display: block;
+            font-size: 12px;
+            line-height: 110%;
+            color: $fifth-color-quiz;
+        }
+    }
+}
