@@ -109,12 +109,12 @@ button {
             color: $main-color-quiz;
         }
     }
-    &__box-question {
+    &__box_question {
         padding: 60px 120px;
         height: auto;
         min-height: 540px;
     }
-    &__form-question {
+    &__form_question {
         position: relative;
         &::after {
             content: attr(data-count);
