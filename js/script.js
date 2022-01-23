@@ -162,24 +162,25 @@ const showResult = (result, quiz) => {
     button.textContent = 'К списку квизов';
 
     block.append(button);
+
     main.append(block);
 
+    showElem(block);
+
     button.addEventListener('click', () => {
-        hideElem(block, () => {
-            showElem(title);
-            showElem(selection);
-        });
+        hideElem(block, initQuiz);
     });
 };
 
 const renderQuiz = quiz => {
-    hideElem(title);
-    hideElem(selection);
-
     const questionBox = document.createElement('div');
     questionBox.className = 'main__box main__box_question';
 
-    main.append(questionBox);
+    hideElem(title);
+    hideElem(selection, () => {
+        showElem(questionBox);
+        main.append(questionBox);
+    });
 
     let result = 0;
     let questionCount = 0;
@@ -211,6 +212,8 @@ const renderQuiz = quiz => {
 
         questionBox.append(form);
 
+        showElem(form);
+
         form.addEventListener('submit', event => {
             //отключить стандартное браузерное поведение
             event.preventDefault();
@@ -228,9 +231,10 @@ const renderQuiz = quiz => {
                 if (questionCount < quiz.list.length) {
                     showQuestion();
                 } else {
-                    hideElem(questionBox);
-                    showResult(result, quiz);
                     saveResult(result, quiz.id);
+                    hideElem(questionBox, () => {
+                        showResult(result, quiz);
+                    }); 
                 }
             } else {
                 form.classList.add('main__form_question_error');
@@ -254,6 +258,9 @@ const addClick = (buttons, data) => {
 };
 
 const initQuiz = async () => {
+
+    showElem(title);
+    showElem(selection);
     const data = await getData();
     const buttons = renderTheme(data);
     
